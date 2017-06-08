@@ -13,4 +13,8 @@ func main() {
 		if err != nil {
 			panic(err);
 		}
-}
+	conn.Write([]byte("PASS " + "oauth:token" + "\r\n"))
+	conn.Write([]byte("NICK " + "username" + "\r\n"))
+	conn.Write([]byte("JOIN " + "#channel" + "\r\n"))
+	defer conn.Close()
+	}
